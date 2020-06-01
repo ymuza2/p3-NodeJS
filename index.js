@@ -11,7 +11,7 @@ const schema = new GraphQLSchema({
   query: rootQueryType,
   mutation: rootMutationType,
 });
-
+//
 app.use(
   "/graphql",
   expressGraphQL({
