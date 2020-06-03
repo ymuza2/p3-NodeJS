@@ -72,7 +72,7 @@ const rootMutationType = new GraphQLObjectType({
           lastname: args.lastname,
           courseID: args.courseID,
         };
-        studentT.push(student);
+        students.push(student);
         return student;
       },
     },
