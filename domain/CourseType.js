@@ -5,7 +5,7 @@ const {
   GraphQLInt,
 } = require("graphql");
 
-const courseType = new GraphQLObjectType({
+ const courseType = new GraphQLObjectType({
   name: "course",
   description: "courses available at school",
   fields: () => ({

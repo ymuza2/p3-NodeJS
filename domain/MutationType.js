@@ -6,23 +6,19 @@ const {
 } = require("graphql");
 
 const courses = require("../Course.json");
-
 const grades = require("../Grade.json");
-
 const students = require("../Student.json");
 
-const coursesType = require("./CourseType");
-
-const gradesType = require("./GradeType");
-
-const studentsType = require("./StudentType");
+const studentT = require("./StudentType");
+const courseT = require("./CourseType");
+const gradeT = require("./GradeType");
 
 const rootMutationType = new GraphQLObjectType({
   name: "Mutation",
   description: "Root Mutation",
   fields: () => ({
     addCourse: {
-      type: coursesType,
+      type: courseT,
       description: "Add a Course",
       args: {
         id: { type: GraphQLNonNull(GraphQLInt) },
@@ -40,7 +36,7 @@ const rootMutationType = new GraphQLObjectType({
       },
     },
     addGrade: {
-      type: gradesType,
+      type: gradeT,
       description: "Add a Grade",
       args: {
         id: { type: GraphQLNonNull(GraphQLInt) },
@@ -61,7 +57,7 @@ const rootMutationType = new GraphQLObjectType({
     },
 
     addStudent: {
-      type: studentsType,
+      type: studentT,
       description: "Add a Student",
       args: {
         id: { type: GraphQLNonNull(GraphQLInt) },
@@ -76,13 +72,13 @@ const rootMutationType = new GraphQLObjectType({
           lastname: args.lastname,
           courseID: args.courseID,
         };
-        students.push(student);
+        studentT.push(student);
         return student;
       },
     },
 
     deleteStudent: {
-      type: studentsType,
+      type: studentT,
       description: "delete a Student",
       args: {
         id: { type: GraphQLNonNull(GraphQLInt) },
@@ -93,7 +89,7 @@ const rootMutationType = new GraphQLObjectType({
     },
 
     deleteCourse: {
-      type: coursesType,
+      type: courseT,
       description: "delete a Course",
       args: {
         id: { type: GraphQLNonNull(GraphQLInt) },
@@ -104,7 +100,7 @@ const rootMutationType = new GraphQLObjectType({
     },
 
     deleteGrade: {
-      type: gradesType,
+      type: gradeT,
       description: "delete a Grade",
       args: {
         id: { type: GraphQLNonNull(GraphQLInt) },

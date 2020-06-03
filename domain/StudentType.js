@@ -5,7 +5,8 @@ const {
   GraphQLInt,
 } = require("graphql");
 
-const coursesType = require("./CourseType");
+const coursetype = require("./CourseType");
+const courses = require("../Course.json");
 
 const studentType = new GraphQLObjectType({
   name: "student",
@@ -15,7 +16,7 @@ const studentType = new GraphQLObjectType({
     name: { type: GraphQLNonNull(GraphQLString) },
     lastname: { type: GraphQLNonNull(GraphQLString) },
     course: {
-      type: coursesType,
+      type: coursetype,
       resolve: (student) => {
         return courses.find((course) => course.id === student.courseID);
       },
